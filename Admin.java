@@ -71,7 +71,7 @@ public class Admin {
         int opt = 0;
         boolean commandGet = false;
         while (!commandGet) {
-            showMenu();
+            showAdminMenu();
             opt = in.nextInt();
             if (opt > 6) 
                 System.out.println("no such command!");
