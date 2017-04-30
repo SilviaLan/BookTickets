@@ -44,12 +44,13 @@ public class Admin {
         }  
     }
 
-    public static void signIn(ArrayList<Admin> array) {
+    public static void signIn(ArrayList<Admin> admins,ArrayList<Passenger> passengers,
+                             ArrayList<Flight> flights,ArrayList<Order> orders) {
         Scanner in = new Scanner(System.in);
         System.out.print("username:");
         String s1 = in.next();
         boolean success = false;
-        for (Admin a : array) {
+        for (Admin a : admins) {
             if (a.userName.equals(s1)) {
                 System.out.print("password:");
                 String s2 = in.next();
@@ -57,16 +58,16 @@ public class Admin {
                     System.out.printf("Welcome back, %s!",a.userName);
                     a.ifSignIn = true;
                     success = true;
+                    Admin.action(a,passengers,flights,orders);//sign in successfully -> admin action
                 }else success = false;    
             }
         }
         if (!success)
             System.out.println("Sorry, wrong password or username, please check!");           
-   }
-/*
-   public static void action(ArrayList<Admin> admins,ArrayList<Passenger> passengers,
-                             ArrayList<Flight> flights,ArrayList<Order> orders) {
-       Scanner in = new Scanner(System.in);
+    }
+
+    public static void action(Admin administrator,ArrayList<Passenger> passengers,ArrayList<Flight> flights,ArrayList<Order> orders) {
+        Scanner in = new Scanner(System.in);
         int opt = 0;
         boolean commandGet = false;
         while (!commandGet) {
@@ -103,8 +104,8 @@ public class Admin {
         
 
    }
-
-  public static void showAdminMenu() {
+    
+    public static void showAdminMenu() {
         for (int i = 0; i < 50; i++) System.out.printf("_");
         System.out.printf("\nWelcome to book ticket!\n%s%s%s%s%s%s%s",
                           "0:Exit\n",
@@ -114,7 +115,32 @@ public class Admin {
                           "4:super query\n",
                           "5:user management\n",
                           "6:query flight\n");
-                          
+    }   
 
-*/
+
+
+    public static void creatFlight(ArrayList<Flight> flights) {
+        Canner in = new Scanner(System.in);
+        System.out.println("Please input FlightID:");
+        String FlightID = in.next();
+        System.out.println("Please input start time:");
+        String startTime = in.next();
+        System.out.println("Please input arrival time:");
+        String arrivalTime = in.next();
+        System.out.println("Please input start city:");
+        String startCity = in.next();
+        System.out.println("Please input arrival city:");
+        String arrivalCity = in.next();
+        System.out.println("Please input departure date:");
+        String departureDate = in.next();
+        System.out.println("Please input price:");
+        int price = in.nextInt();
+        System.out.println("Please input seat capacity:");
+        int seatCapacity = in.nextInt();
+        System.out.println("Please input flight status:");
+        String flightStatus = in.next();
+        
+        Flight f = new Flight(FlightID, startTime, arrivalTime, startCity, arrivalCity, departureDate, price, seatCapacity, flights);
+        flights.add(f);
+    }
 }
