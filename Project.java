@@ -3,7 +3,10 @@ import java.util.*;
 public class Project {
     public static void main(String[] args) {
         ArrayList<Admin> Admins = new ArrayList<Admin>();
-  //      ArrayList<Passenger> Passengers = new ArrayList<Passenger>();
+        ArrayList<Passenger> Passengers = new ArrayList<Passenger>();
+        ArrayList<Flight> Flights = new ArrayList<Flight>();
+        ArrayList<Order> Orders = new ArrayList<Order>();
+        
 
         Scanner in = new Scanner(System.in);
         int opt = 0;
@@ -26,8 +29,7 @@ public class Project {
                         break;
 //              case 2: Passengers.SignUp(Passengers);
  //                     break;
-                case 3: Admin.signIn(Admins);
-            //          Admin.action(Admins, Passengers, Flights, Orders);
+                case 3: Admin.signIn(Admins,Passengers,Flights,Orders);
                         break;
         //      case 4: Passengers.SignIn(Passengers);
         //              Passengers.action(Passengers, Flights, Orders);
