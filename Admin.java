@@ -71,7 +71,7 @@ public class Admin {
         int opt = 0;
         boolean commandGet = false;
         while (!commandGet) {
-            showMenu();
+            showAdminMenu();
             opt = in.nextInt();
             if (opt > 6) 
                 System.out.println("no such command!");
@@ -116,8 +116,6 @@ public class Admin {
                           "5:user management\n",
                           "6:query flight\n");
     }   
-
-
 
     public static void creatFlight(ArrayList<Flight> flights) {
         Canner in = new Scanner(System.in);
