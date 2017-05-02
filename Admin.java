@@ -117,8 +117,6 @@ public class Admin {
                           "6:query flight\n");
     }   
 
-
-
     public static void creatFlight(ArrayList<Flight> flights) {
         Canner in = new Scanner(System.in);
         System.out.println("Please input FlightID:");
